@@ -7,7 +7,7 @@ A restart of the script will append new recordings at the end of battery.txt
 
 Example:
 Time Battery% CPU% Voltage
-07:56:44 100 49.8 12256
+07:56:44 100 49.8 12256 \n
 07:57:44 100 21.4 12255
 07:58:45 100 14.7 12255
 07:59:45 100 11.2 12255
