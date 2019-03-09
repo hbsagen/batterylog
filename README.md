@@ -5,8 +5,8 @@ Used to check for sudden drops in voltage or other issues.<br>
 Stop with ctrl + C.<br>
 A restart of the script will append new recordings at the end of battery.txt<br>
 
-Example:
-Time Battery% CPU% Voltage<br>
+Example:<br>
+Time, Battery %, CPU Load %, Voltage [mV]<br>
 07:56:44 100 49.8 12256<br>
 07:57:44 100 21.4 12255<br>
 07:58:45 100 14.7 12255<br>
