@@ -6,9 +6,12 @@ import psutil
 import os
 import signal
 
+_=os.system("clear")
+print("Battery log running")
+
 file = open("Battery.txt","a")
 file.write("Time Battery% CPU% Voltage" + '\n')
-file.close() 
+file.close()
 
 i = 0
 
@@ -39,7 +42,9 @@ try:
 
         file = open("Battery.txt","a")  
         file.write(current_time + " " + c + str(psutil.cpu_percent()) + " " + str(batt3))
-        file.close() 
+        file.close()
+        _=os.system("clear")
+        print(current_time + " " + c + str(psutil.cpu_percent()) + " " + str(batt3))
 
         time.sleep(60)
 except KeyboardInterrupt:
