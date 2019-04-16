@@ -48,7 +48,7 @@ try:
             l = l + 1
             time.sleep(1)
 
-        cpu = math.floor(cpu / 60)
+        cpu = math.floor(cpu / 59)
 
         file = open("Battery.txt","a")  
         file.write(current_time + " " + c + str(cpu) + " " + str(batt3))
