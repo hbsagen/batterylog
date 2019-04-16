@@ -5,6 +5,7 @@ from datetime import datetime
 import psutil
 import os
 import signal
+import math
 
 _=os.system("clear")
 print("Battery log running")
@@ -14,6 +15,8 @@ file.write("Time Battery% CPU% Voltage" + '\n')
 file.close()
 
 i = 0
+l = 0
+cpu = 0
 
 try:
     while True:
@@ -40,13 +43,23 @@ try:
         batt2 = batt.decode("utf-8")
         batt3 = batt2.replace("      Voltage (mV): ", "")
 
+        while l < 59:
+            cpu = psutil.cpu_percent() + cpu
+            l = l + 1
+            time.sleep(1)
+
+        cpu = math.floor(cpu / 60)
+
         file = open("Battery.txt","a")  
-        file.write(current_time + " " + c + str(psutil.cpu_percent()) + " " + str(batt3))
+        file.write(current_time + " " + c + str(cpu) + " " + str(batt3))
         file.close()
         _=os.system("clear")
-        print(current_time + " " + c + str(psutil.cpu_percent()) + " " + str(batt3))
+        print(current_time + " " + c + str(cpu) + " " + str(batt3))
 
-        time.sleep(60)
+        cpu = 0
+        l = 0
+
+
 except KeyboardInterrupt:
     #stop
     file.close()
